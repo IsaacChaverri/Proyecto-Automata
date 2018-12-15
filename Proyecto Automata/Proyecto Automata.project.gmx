@@ -12,12 +12,18 @@
       <sound>sound\snd_temp_isaac</sound>
     </sounds>
     <sounds name="Others">
-      <sound>sound\snd_temp_others</sound>
+      <sound>sound\snd_touch</sound>
+      <sound>sound\snd_swipe</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Markus">
-      <sprite>sprites\spr_temp_markus</sprite>
+      <sprites name="Gameplay">
+        <sprites name="Automata">
+          <sprite>sprites\spr_automata_handler</sprite>
+          <sprite>sprites\spr_state</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="Isaac">
       <sprite>sprites\spr_temp_isaac</sprite>
@@ -25,6 +31,11 @@
     <sprites name="Others">
       <sprites name="Text">
         <sprite>sprites\spr_next_icon</sprite>
+      </sprites>
+      <sprites name="Test">
+        <sprites name="Gesture">
+          <sprite>sprites\spr_test_gesture_ball</sprite>
+        </sprites>
       </sprites>
     </sprites>
   </sprites>
@@ -42,7 +53,13 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Markus">
-      <script>scripts\scr_temp_markus.gml</script>
+      <scripts name="Gameplay">
+        <scripts name="Automata">
+          <scripts name="Transitions">
+            <script>scripts\scr_update_transition_arrow.gml</script>
+          </scripts>
+        </scripts>
+      </scripts>
     </scripts>
     <scripts name="Isaac">
       <script>scripts\scr_temp_isaac.gml</script>
@@ -73,7 +90,6 @@
         </scripts>
       </scripts>
       <scripts name="Others">
-        <script>scripts\scr_get_inputs.gml</script>
         <script>scripts\scr_approach.gml</script>
         <script>scripts\scr_wave_approach.gml</script>
         <script>scripts\scr_find_in_list.gml</script>
@@ -83,6 +99,8 @@
         <script>scripts\scr_jump_in_direction.gml</script>
         <script>scripts\scr_move_object.gml</script>
         <script>scripts\scr_instance_create_depth.gml</script>
+        <script>scripts\scr_mouse_hovering_object.gml</script>
+        <script>scripts\scr_object_inside_object.gml</script>
         <scripts name="Flash">
           <script>scripts\scr_flash.gml</script>
           <script>scripts\scr_flash_dummy.gml</script>
@@ -108,7 +126,14 @@
   </fonts>
   <objects name="objects">
     <objects name="Markus">
-      <object>objects\obj_temp_markus</object>
+      <objects name="Gameplay">
+        <objects name="Automata">
+          <object>objects\obj_automata_handler</object>
+          <object>objects\obj_state_ghost</object>
+          <object>objects\obj_state</object>
+          <object>objects\obj_transition</object>
+        </objects>
+      </objects>
     </objects>
     <objects name="Isaac">
       <object>objects\obj_temp_isaac</object>
@@ -126,6 +151,12 @@
         <object>objects\obj_general_control</object>
         <object>objects\obj_dummy</object>
       </objects>
+      <objects name="Test">
+        <objects name="Gesture">
+          <object>objects\obj_test_gesture_drawer</object>
+          <object>objects\obj_test_gesture_ball</object>
+        </objects>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -138,6 +169,9 @@
     </rooms>
     <rooms name="Others">
       <room>rooms\rm_start</room>
+      <rooms name="Test">
+        <room>rooms\rm_test_gesture</room>
+      </rooms>
     </rooms>
   </rooms>
   <help>

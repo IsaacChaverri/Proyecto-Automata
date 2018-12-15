@@ -5,4 +5,4 @@ scr_load();
 scr_instance_create_depth(0,0,0,obj_general_control);
 GENERAL_VOLUME = 1;
 audio_master_gain(GENERAL_VOLUME);
-room_goto(rm_start);
+room_goto(rm_gameplay);

@@ -678,7 +678,8 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="2">
+    <constants number="3">
+      <constant name="SECOND">60</constant>
       <constant name="GAME_HEIGHT">480</constant>
       <constant name="GAME_WIDTH">270</constant>
     </constants>
