@@ -10,8 +10,9 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>scr_instance_create_depth(0,0,0,obj_level_handler);
-scr_instance_create_depth(0,0,0,obj_initial_level);</code>
+  <code>scr_instance_create_depth(room_width/2,room_height*0.078125,0,obj_level_header);
+scr_instance_create_depth(room_width/2,room_height/4,50,obj_initial_level);
+scr_instance_create_depth(room_width/2,room_height*0.921875,0,obj_level_bottom);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
