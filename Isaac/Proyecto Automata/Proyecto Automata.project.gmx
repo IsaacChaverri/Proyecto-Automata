@@ -44,7 +44,6 @@
         <sprite>sprites\sprt_level_bottom</sprite>
         <sprite>sprites\sprt_initial_arrow</sprite>
       </sprites>
-      <sprite>sprites\spr_temp_isaac</sprite>
     </sprites>
     <sprites name="Others">
       <sprites name="Text">
@@ -171,6 +170,8 @@
         <objects name="Selection">
           <object>objects\obj_initial_level</object>
           <object>objects\obj_init_arrow</object>
+          <object>objects\object23</object>
+          <object>objects\obj_level</object>
         </objects>
         <object>objects\obj_level_bottom</object>
         <object>objects\obj_level_header</object>

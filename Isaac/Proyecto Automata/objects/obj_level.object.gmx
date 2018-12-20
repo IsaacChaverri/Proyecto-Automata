@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initilize Variables
+            <string>///Initialize Variables
 
 //State
 scr_initialize_state();
@@ -55,11 +55,33 @@ image_speed = 0;
             <string>///Choose State Counter
 switch(state.counter){
     case 0:
-        arrow_init = scr_instance_create_depth(x-50,y-50,50,obj_init_arrow);
-        next_level = scr_instance_create_depth(x,y+200,50,obj_level);
+        //arrow_init = scr_instance_create_depth(x-50,y-50,50,obj_init_arrow);
         state.counter++;
         break;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set sprite
+
+image_index = 1;
 </string>
           </argument>
         </arguments>
@@ -85,12 +107,12 @@ switch(state.counter){
             <string>///Draw Name
 
 //Choose Color
-var color = c_gray;
+var color = c_white;
 //Self
 draw_self();
 //Letter
 scr_setup_write(fnt_temp_isaac,fa_center,fa_middle,c_black);
-var text = "A";
+var text = "B";
 var text_color = color;
 var text_alpha = 1;
 draw_text_colour(x,y,text,text_color,text_color,text_color,text_color,text_alpha);
