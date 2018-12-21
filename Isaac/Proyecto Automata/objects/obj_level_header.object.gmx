@@ -89,7 +89,7 @@ var color = c_gray;
 //Self
 draw_self();
 //Letter
-scr_setup_write(fnt_temp_isaac,fa_center,fa_middle,c_black);
+scr_setup_write(fnt_level_select,fa_center,fa_middle,c_black);
 var text = "Erika Marin";
 var text_color = color;
 var text_alpha = 1;

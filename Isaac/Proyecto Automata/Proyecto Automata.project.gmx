@@ -43,6 +43,10 @@
         <sprite>sprites\sprt_initial_level</sprite>
         <sprite>sprites\sprt_level_bottom</sprite>
         <sprite>sprites\sprt_initial_arrow</sprite>
+        <sprite>sprites\spr_locked_icon</sprite>
+        <sprite>sprites\spr_next_arrow</sprite>
+        <sprite>sprites\sprt_page_select</sprite>
+        <sprite>sprites\sprt_add_level</sprite>
       </sprites>
     </sprites>
     <sprites name="Others">
@@ -135,8 +139,8 @@
       <font>fonts\fnt_temp_markus</font>
     </fonts>
     <fonts name="Isaac">
-      <font>fonts\fnt_temp_isaac</font>
       <font>fonts\fnt_level_select</font>
+      <font>fonts\fnt_pages</font>
     </fonts>
     <fonts name="Others">
       <font>fonts\fnt_default</font>
@@ -170,11 +174,16 @@
         <objects name="Selection">
           <object>objects\obj_initial_level</object>
           <object>objects\obj_init_arrow</object>
-          <object>objects\object23</object>
-          <object>objects\obj_level</object>
+          <object>objects\obj_next_arrow</object>
+          <object>objects\obj_add_level</object>
         </objects>
-        <object>objects\obj_level_bottom</object>
-        <object>objects\obj_level_header</object>
+        <objects name="Pages">
+          <object>objects\obj_level_header</object>
+          <object>objects\obj_level_bottom</object>
+          <object>objects\obj_selected_page</object>
+        </objects>
+        <object>objects\obj_page</object>
+        <object>objects\obj_page_teacher</object>
       </objects>
     </objects>
     <objects name="Others">
@@ -205,7 +214,8 @@
       <room>rooms\rm_gameplay</room>
     </rooms>
     <rooms name="Isaac">
-      <room>rooms\rm_levels</room>
+      <room>rooms\rm_levels_student</room>
+      <room>rooms\rm_levels_teacher</room>
     </rooms>
     <rooms name="Others">
       <room>rooms\rm_start</room>

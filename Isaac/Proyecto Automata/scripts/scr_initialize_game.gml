@@ -7,4 +7,5 @@ GENERAL_VOLUME = 1;
 audio_master_gain(GENERAL_VOLUME);
 window_set_fullscreen(true);
 //room_goto(rm_gameplay);
-room_goto(rm_levels);
+//room_goto(rm_levels_student);
+room_goto(rm_levels_teacher);

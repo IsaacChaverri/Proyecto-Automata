@@ -11,7 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>scr_instance_create_depth(room_width/2,room_height*0.078125,0,obj_level_header);
-scr_instance_create_depth(room_width/2,room_height/4,50,obj_initial_level);
+scr_instance_create_depth(room_width/2,room_height/4,50,obj_page);
 scr_instance_create_depth(room_width/2,room_height*0.921875,0,obj_level_bottom);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

@@ -30,6 +30,9 @@
 //State
 scr_initialize_state();
 image_speed = 0;
+text_font = fnt_temp_isaac;
+level_locked = false;
+letter = "A";
 </string>
           </argument>
         </arguments>
