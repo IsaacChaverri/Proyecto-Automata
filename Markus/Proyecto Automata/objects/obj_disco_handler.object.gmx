@@ -116,6 +116,7 @@ if(not initialized_dependent_variables){
     pause_button = scr_instance_create_depth(pause_button_x,pause_button_y,pause_button_depth,obj_button);
     with(pause_button){
         sprite_index = spr_pause_button;
+        script = scr_disco_pause_button;
     }
     //Create Trash Button
     var trash_button_width = sprite_get_width(spr_automata_trash);

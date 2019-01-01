@@ -35,6 +35,10 @@
             <sprite>sprites\spr_robot</sprite>
           </sprites>
         </sprites>
+        <sprites name="Pause">
+          <sprite>sprites\spr_pause_window</sprite>
+          <sprite>sprites\spr_pause_window_button</sprite>
+        </sprites>
       </sprites>
     </sprites>
     <sprites name="Isaac">
@@ -90,6 +94,13 @@
           <scripts name="Trash">
             <script>scripts\scr_automata_trash_button.gml</script>
           </scripts>
+          <scripts name="Pause Button">
+            <script>scripts\scr_disco_pause_button.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="Pause">
+          <script>scripts\scr_pause_window_continue_button.gml</script>
+          <script>scripts\scr_pause_window_exit_button.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -134,6 +145,9 @@
           <script>scripts\scr_setup_write.gml</script>
           <script>scripts\scr_draw_text_outlined.gml</script>
         </scripts>
+        <scripts name="Screenshot">
+          <script>scripts\scr_screenshot_dummy_draw.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Others">
         <script>scripts\scr_approach.gml</script>
@@ -142,6 +156,7 @@
         <script>scripts\scr_chance.gml</script>
         <script>scripts\scr_wave.gml</script>
         <script>scripts\scr_deactivate_all.gml</script>
+        <script>scripts\scr_reactivate_all.gml</script>
         <script>scripts\scr_jump_in_direction.gml</script>
         <script>scripts\scr_move_object.gml</script>
         <script>scripts\scr_instance_create_depth.gml</script>
@@ -150,6 +165,7 @@
         <script>scripts\scr_room_goto.gml</script>
         <script>scripts\scr_find_acronym.gml</script>
         <script>scripts\scr_split_string.gml</script>
+        <script>scripts\scr_ds_list_delete_value.gml</script>
         <scripts name="Flash">
           <script>scripts\scr_flash.gml</script>
           <script>scripts\scr_flash_dummy.gml</script>
@@ -172,10 +188,22 @@
     <fonts name="Others">
       <font>fonts\fnt_default</font>
       <fonts name="Arial">
-        <font>fonts\fnt_arial_12</font>
-        <font>fonts\fnt_arial_18</font>
-        <font>fonts\fnt_arial_24</font>
-        <font>fonts\fnt_arial_30</font>
+        <fonts name="Normal">
+          <font>fonts\fnt_arial_12</font>
+          <font>fonts\fnt_arial_18</font>
+          <font>fonts\fnt_arial_24</font>
+          <font>fonts\fnt_arial_30</font>
+          <font>fonts\fnt_arial_36</font>
+          <font>fonts\fnt_arial_48</font>
+        </fonts>
+        <fonts name="Bold">
+          <font>fonts\fnt_arial_12_bold</font>
+          <font>fonts\fnt_arial_18_bold</font>
+          <font>fonts\fnt_arial_24_bold</font>
+          <font>fonts\fnt_arial_30_bold</font>
+          <font>fonts\fnt_arial_36_bold</font>
+          <font>fonts\fnt_arial_48_bold</font>
+        </fonts>
       </fonts>
     </fonts>
   </fonts>
@@ -195,6 +223,9 @@
           <object>objects\obj_robot</object>
           <object>objects\obj_step</object>
           <object>objects\obj_automata_trash_button</object>
+        </objects>
+        <objects name="Pause">
+          <object>objects\obj_pause_window</object>
         </objects>
       </objects>
     </objects>
@@ -227,7 +258,10 @@
       </objects>
       <objects name="GUI">
         <object>objects\obj_fade</object>
-        <object>objects\obj_button</object>
+        <objects name="Button">
+          <object>objects\obj_button</object>
+          <object>objects\obj_text_button</object>
+        </objects>
       </objects>
       <objects name="Others">
         <object>objects\obj_general_control</object>
