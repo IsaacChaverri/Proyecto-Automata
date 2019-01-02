@@ -12,7 +12,6 @@ var pause_window_depth = obj_fade.depth-1;
 pause_window = scr_instance_create_depth(pause_window_x,pause_window_y,pause_window_depth,obj_pause_window);
 with(pause_window){
     id.screenshot = screenshot;
-    id.deactivated_instances_list = deactivated_instances_list;
 }
 //Destroy Dummy
 instance_destroy();

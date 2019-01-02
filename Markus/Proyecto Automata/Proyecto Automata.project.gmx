@@ -24,7 +24,13 @@
           <sprite>sprites\spr_automata_handler</sprite>
           <sprite>sprites\spr_state</sprite>
           <sprite>sprites\spr_state_final</sprite>
-          <sprite>sprites\spr_transition_number</sprite>
+          <sprite>sprites\spr_transition_values</sprite>
+          <sprites name="Number Dial">
+            <sprite>sprites\spr_number_dial_window</sprite>
+            <sprite>sprites\spr_number_dial_window_number_button</sprite>
+            <sprite>sprites\spr_number_dial_window_accept_button</sprite>
+            <sprite>sprites\spr_number_dial_window_cancel_button</sprite>
+          </sprites>
         </sprites>
         <sprites name="Disco">
           <sprite>sprites\spr_disco_handler</sprite>
@@ -90,6 +96,15 @@
   <scripts name="scripts">
     <scripts name="Markus">
       <scripts name="Gameplay">
+        <scripts name="Automata">
+          <scripts name="Number Dial">
+            <script>scripts\scr_create_number_dial_window.gml</script>
+            <script>scripts\scr_number_dial_window_number_button.gml</script>
+            <script>scripts\scr_number_dial_window_special_number_button.gml</script>
+            <script>scripts\scr_number_dial_window_cancel_button.gml</script>
+            <script>scripts\scr_number_dial_window_accept_button.gml</script>
+          </scripts>
+        </scripts>
         <scripts name="Disco">
           <scripts name="Trash">
             <script>scripts\scr_automata_trash_button.gml</script>
@@ -217,6 +232,11 @@
           <object>objects\obj_transition</object>
           <object>objects\obj_transition_values</object>
           <object>objects\obj_start_arrow</object>
+          <objects name="Number Dial">
+            <object>objects\obj_number_dial_window</object>
+            <object>objects\obj_number_dial_button</object>
+            <object>objects\obj_number_dial_window_accept_button</object>
+          </objects>
         </objects>
         <objects name="Disco">
           <object>objects\obj_disco_handler</object>
