@@ -51,11 +51,14 @@ event_inherited();
 
 //Flag Variables
 initialized_dependent_variables = false;
+selected = false;
 //Image Variables
 image_speed = 0;
 //Text Variables
 text_font = fnt_arial_24;
 text_color = c_black;
+//Other Variables
+original_script = noone;
 </string>
           </argument>
         </arguments>
@@ -100,11 +103,44 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Select/Deselect
+selected = false;
+if(scr_char_in_string(value,number_dial_window.values)){
+    selected = true;
+}
+
+if(selected){
+    script = scr_number_dial_window_deselect_number_button;
+}else{
+    script = original_script;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Update Image Index
+image_index = 0;
+if(selected){
+    image_index = 2;
+}
 if(locked){
     image_index = 1;
-}else{
-    image_index = 0;
 }
 </string>
           </argument>
@@ -133,6 +169,7 @@ if(not initialized_dependent_variables){
     initialized_dependent_variables = true;
     
     text = value;
+    original_script = script;
 }
 </string>
           </argument>

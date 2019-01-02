@@ -31,7 +31,7 @@
 transition_is_cycle = false;
 //Text Variables
 text_font = fnt_arial_12;
-padding = 10;
+padding = 1;
 //Other Variables
 values = "";
 transition = noone;
@@ -86,6 +86,32 @@ if(transition.transition_is_cycle){
             <string>///Select Transition
 if(CURRENT_GESTURE == "TOUCH" and not GESTURE_IS_DOUBLE and scr_mouse_hovering_object(obj_transition_values,false,false) == id){
     transition.state_1.automata_handler.selected_object = transition;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Edit Transition
+if(CURRENT_GESTURE == "TAP" and GESTURE_IS_DOUBLE and scr_mouse_hovering_object(obj_transition_values,false,false) == id){
+    with(transition){
+        scr_create_number_dial_window(id,state_2,true);
+    }
 }
 </string>
           </argument>

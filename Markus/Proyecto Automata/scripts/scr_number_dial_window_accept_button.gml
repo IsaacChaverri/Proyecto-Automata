@@ -9,12 +9,14 @@ with(number_dial_window){
     with(transition){
         //Assign State 2
         state_2 = other.hovered_state;
-        //Check if transition is double
-        with(obj_transition){
-            if(id != other.id){
-                if(other.state_1 == state_2 and other.state_2 == state_1){
-                    transition_is_double = true;
-                    other.transition_is_double = true;
+        if(not transition_is_cycle){
+            //Check if transition is double
+            with(obj_transition){
+                if(id != other.id){
+                    if(other.state_1 == state_2 and other.state_2 == state_1){
+                        transition_is_double = true;
+                        other.transition_is_double = true;
+                    }
                 }
             }
         }

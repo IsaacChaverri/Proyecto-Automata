@@ -264,7 +264,7 @@ switch(current_state){
                     }
                 }
                 if(hovered_state != noone and not transition_already_exists){
-                    scr_create_number_dial_window(id,hovered_state);
+                    scr_create_number_dial_window(id,hovered_state,false);
                 }else{
                     instance_destroy();
                 }
@@ -403,23 +403,7 @@ switch(current_state){
                     }
                 }
                 if(not transition_already_exists){
-                    //Assign states
-                    state_2 = state_1;
-                    //Create transition values
-                    var transition_values_x = (arrow_start_x+arrow_end_x)/2;
-                    var transition_values_y = (arrow_start_y+arrow_end_y)/2;
-                    var transition_values_values = "1";
-                    transition_values = scr_instance_create_depth(transition_values_x,transition_values_y,depth-1,obj_transition_values);
-                    with(transition_values){
-                        transition = other.id;
-                        values = transition_values_values;
-                    }
-                    //Select transition
-                    state_1.automata_handler.selected_object = id;
-                    //Add transition to state 1
-                    ds_list_add(state_1.transitions_list,id);
-                    //Change state
-                    current_state = "PLACED";
+                    scr_create_number_dial_window(id,state_1,false);
                 }else{
                     instance_destroy();
                 }

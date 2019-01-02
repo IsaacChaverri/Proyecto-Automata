@@ -103,6 +103,11 @@
             <script>scripts\scr_number_dial_window_special_number_button.gml</script>
             <script>scripts\scr_number_dial_window_cancel_button.gml</script>
             <script>scripts\scr_number_dial_window_accept_button.gml</script>
+            <script>scripts\scr_number_dial_window_deselect_number_button.gml</script>
+            <scripts name="Edit">
+              <script>scripts\scr_number_dial_window_edit_cancel_button.gml</script>
+              <script>scripts\scr_number_dial_window_edit_accept_button.gml</script>
+            </scripts>
           </scripts>
         </scripts>
         <scripts name="Disco">
@@ -181,6 +186,7 @@
         <script>scripts\scr_find_acronym.gml</script>
         <script>scripts\scr_split_string.gml</script>
         <script>scripts\scr_ds_list_delete_value.gml</script>
+        <script>scripts\scr_char_in_string.gml</script>
         <scripts name="Flash">
           <script>scripts\scr_flash.gml</script>
           <script>scripts\scr_flash_dummy.gml</script>
@@ -190,6 +196,7 @@
           <script>scripts\scr_shake_object_list.gml</script>
           <script>scripts\scr_shake_dummy_step.gml</script>
         </scripts>
+        <script>scripts\scr_string_get_char_index.gml</script>
       </scripts>
     </scripts>
   </scripts>

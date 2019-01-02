@@ -56,7 +56,6 @@ text = "Aceptar";
 text_font = fnt_arial_18;
 //Other Variables
 number_dial_window = noone;
-script = scr_number_dial_window_accept_button;
 </string>
           </argument>
         </arguments>

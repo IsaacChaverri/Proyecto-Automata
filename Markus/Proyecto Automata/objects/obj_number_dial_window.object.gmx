@@ -29,6 +29,7 @@
 
 //Flag Variables
 initialized_dependent_variables = false;
+editting = false;
 //Position Variables
 values_y_offset = sprite_height/12;
 //Text Variables
@@ -208,6 +209,10 @@ if(not initialized_dependent_variables){
     var cancel_button_y_offset = number_buttons_y_distance+(number_buttons_y_distance/4);
     var cancel_button_y = last_number_button.y+cancel_button_y_offset;
     var cancel_button_depth = depth-1;
+    var cancel_button_script = scr_number_dial_window_cancel_button;
+    if(editting){
+        cancel_button_script = scr_number_dial_window_edit_cancel_button;
+    }
     cancel_button = scr_instance_create_depth(cancel_button_x,cancel_button_y,cancel_button_depth,obj_text_button);
     with(cancel_button){
         number_dial_window = other.id;
@@ -215,7 +220,7 @@ if(not initialized_dependent_variables){
         image_speed = 0;
         text = "Cancelar";
         text_font = fnt_arial_18;
-        script = scr_number_dial_window_cancel_button;
+        script = cancel_button_script;
     }
     //Create Accept Button
     var accept_button_width = sprite_get_width(spr_number_dial_window_accept_button);
@@ -223,9 +228,14 @@ if(not initialized_dependent_variables){
     var accept_button_x = right_number_buttons_x+(number_button_width/2)-(accept_button_width/2);
     var accept_button_y = cancel_button_y;
     var accept_button_depth = depth-1;
+    var accept_button_script = scr_number_dial_window_accept_button;
+    if(editting){
+        accept_button_script = scr_number_dial_window_edit_accept_button;
+    }
     accept_button = scr_instance_create_depth(accept_button_x,accept_button_y,accept_button_depth,obj_number_dial_window_accept_button);
     with(accept_button){
         number_dial_window = other.id;
+        script = accept_button_script;
     }
 }
 </string>
