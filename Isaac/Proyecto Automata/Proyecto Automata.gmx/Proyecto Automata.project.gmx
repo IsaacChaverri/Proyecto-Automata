@@ -74,6 +74,7 @@
       <sprites name="Create">
         <sprite>sprites\spr_create_button</sprite>
         <sprite>sprites\spr_steps_text</sprite>
+        <sprite>sprites\spr_cancel</sprite>
         <sprite>sprites\spr_robot_create</sprite>
       </sprites>
     </sprites>
