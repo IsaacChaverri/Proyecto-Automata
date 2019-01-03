@@ -678,7 +678,9 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="3">
+    <constants number="5">
+      <constant name="SIGMA">"E"</constant>
+      <constant name="EPSILON">"e"</constant>
       <constant name="SECOND">60</constant>
       <constant name="GAME_HEIGHT">480</constant>
       <constant name="GAME_WIDTH">270</constant>

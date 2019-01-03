@@ -1,7 +1,7 @@
 ///scr_number_dial_window_number_button()
 //Add Value
 var number_dial_window = button.number_dial_window;
-if(number_dial_window.values == "e" or number_dial_window.values == "E"){
+if(number_dial_window.values == EPSILON or number_dial_window.values == SIGMA){
     number_dial_window.values = "";
 }
 var new_value = button.value;

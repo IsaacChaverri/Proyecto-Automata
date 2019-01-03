@@ -37,6 +37,7 @@
           <sprite>sprites\spr_step</sprite>
           <sprite>sprites\spr_pause_button</sprite>
           <sprite>sprites\spr_automata_trash</sprite>
+          <sprite>sprites\spr_remainder_states_counter</sprite>
           <sprites name="Robot">
             <sprite>sprites\spr_robot</sprite>
           </sprites>
@@ -107,10 +108,15 @@
             <script>scripts\scr_number_dial_window_cancel_button.gml</script>
             <script>scripts\scr_number_dial_window_accept_button.gml</script>
             <script>scripts\scr_number_dial_window_deselect_number_button.gml</script>
+            <script>scripts\scr_transition_value_is_usable.gml</script>
             <scripts name="Edit">
               <script>scripts\scr_number_dial_window_edit_cancel_button.gml</script>
               <script>scripts\scr_number_dial_window_edit_accept_button.gml</script>
             </scripts>
+          </scripts>
+          <scripts name="States">
+            <script>scripts\scr_find_simultaneous_states_list.gml</script>
+            <script>scripts\scr_find_simultaneous_states_list_ext.gml</script>
           </scripts>
         </scripts>
         <scripts name="Disco">
@@ -253,6 +259,7 @@
           <object>objects\obj_robot</object>
           <object>objects\obj_step</object>
           <object>objects\obj_automata_trash_button</object>
+          <object>objects\obj_remainder_states_counter</object>
         </objects>
         <objects name="Pause">
           <object>objects\obj_pause_window</object>
