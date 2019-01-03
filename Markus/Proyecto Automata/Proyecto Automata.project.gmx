@@ -69,6 +69,9 @@
           <sprite>sprites\spr_page_tag</sprite>
         </sprites>
       </sprites>
+      <sprites name="Create">
+        <sprite>sprites\spr_create_button</sprite>
+      </sprites>
     </sprites>
     <sprites name="Others">
       <sprites name="Text">
@@ -276,6 +279,9 @@
           <object>objects\obj_page_tag</object>
         </objects>
       </objects>
+      <objects name="Creation">
+        <object>objects\obj_create_handler</object>
+      </objects>
     </objects>
     <objects name="Others">
       <objects name="Text">
@@ -309,6 +315,7 @@
     </rooms>
     <rooms name="Isaac">
       <room>rooms\rm_levels</room>
+      <room>rooms\rm_create</room>
     </rooms>
     <rooms name="Others">
       <room>rooms\rm_start</room>
