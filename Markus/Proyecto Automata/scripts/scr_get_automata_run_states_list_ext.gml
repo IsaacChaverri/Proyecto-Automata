@@ -5,7 +5,7 @@ var arg_current_step = argument2;
 
 ds_list_add(arg_automata_run_states_list,arg_current_state);
 
-if(instance_exists(arg_current_step)){
+if(instance_exists(arg_current_step) and not arg_current_state.state_is_final){
     var current_state_simultaneous_states_list = scr_find_simultaneous_states_list(arg_current_state);
     var current_state_simultaneous_states_list_size = ds_list_size(current_state_simultaneous_states_list);
     for(var i=0;i<current_state_simultaneous_states_list_size;i++){

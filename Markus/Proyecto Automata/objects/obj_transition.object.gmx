@@ -504,7 +504,17 @@ if(state_1.automata_handler.selected_object == id){
 }
 var original_color = draw_get_color();
 draw_set_color(arrow_color);
-draw_arrow(x,y,arrow_end_x,arrow_end_y,arrow_size);
+var transition_is_epsilon = false;
+with(transition_values){
+    if(values == EPSILON){
+        transition_is_epsilon = true;
+    }
+}
+if(transition_is_epsilon){
+    draw_line(x,y,arrow_end_x,arrow_end_y);
+}else{
+    draw_arrow(x,y,arrow_end_x,arrow_end_y,arrow_size);
+}
 draw_set_color(original_color);
 </string>
           </argument>

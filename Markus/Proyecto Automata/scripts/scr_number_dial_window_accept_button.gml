@@ -9,8 +9,8 @@ with(number_dial_window){
     with(transition){
         //Assign State 2
         state_2 = other.hovered_state;
+        //Check if transition is double
         if(not transition_is_cycle){
-            //Check if transition is double
             with(obj_transition){
                 if(id != other.id){
                     if(other.state_1 == state_2 and other.state_2 == state_1){
@@ -33,6 +33,17 @@ with(number_dial_window){
         state_1.automata_handler.selected_object = id;
         //Add transition to state 1
         ds_list_add(state_1.transitions_list,id);
+        //Update simultaneous final states
+        if(transition_values.values == EPSILON){
+            state_1_simultaneous_states_list = scr_find_simultaneous_states_list(state_1);
+            state_1_simultaneous_states_list_size = ds_list_size(state_1_simultaneous_states_list);
+            for(var i=0;i<state_1_simultaneous_states_list_size;i++){
+                var temp_simultaneous_state = ds_list_find_value(state_1_simultaneous_states_list,i);
+                with(temp_simultaneous_state){
+                    state_is_final = other.state_1.state_is_final;
+                }
+            }
+        }
         //Change state
         current_state = "PLACED";
     }

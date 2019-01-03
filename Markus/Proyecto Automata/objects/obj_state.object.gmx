@@ -202,7 +202,16 @@ switch(current_state){
                 break;
             case "TAP":
                 if(GESTURE_IS_DOUBLE){
-                    state_is_final = not state_is_final;
+                    //Make simultaneous states final/not final
+                    var new_state_is_final = not state_is_final;
+                    simultaneous_states_list = scr_find_simultaneous_states_list(id);
+                    var simultaneous_states_list_size = ds_list_size(simultaneous_states_list);
+                    for(var i=0;i&lt;simultaneous_states_list_size;i++){
+                        var temp_state = ds_list_find_value(simultaneous_states_list,i);
+                        with(temp_state){
+                            state_is_final = new_state_is_final;
+                        }
+                    }
                     current_state = "OFF"
                 }
                 break;
