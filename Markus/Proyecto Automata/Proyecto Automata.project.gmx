@@ -6,7 +6,12 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Markus">
-      <sound>sound\snd_temp_markus</sound>
+      <sounds name="Gameplay">
+        <sounds name="Automata">
+          <sound>sound\sfx_automata_win</sound>
+          <sound>sound\sfx_automata_lose</sound>
+        </sounds>
+      </sounds>
     </sounds>
     <sounds name="Isaac">
       <sound>sound\snd_temp_isaac</sound>
@@ -40,6 +45,7 @@
           <sprite>sprites\spr_remainder_states_counter</sprite>
           <sprites name="Robot">
             <sprite>sprites\spr_robot</sprite>
+            <sprite>sprites\spr_robot_button</sprite>
           </sprites>
         </sprites>
         <sprites name="Pause">
@@ -69,9 +75,6 @@
           <sprite>sprites\spr_pages_box</sprite>
           <sprite>sprites\spr_page_tag</sprite>
         </sprites>
-      </sprites>
-      <sprites name="Create">
-        <sprite>sprites\spr_create_button</sprite>
       </sprites>
     </sprites>
     <sprites name="Others">
@@ -125,6 +128,12 @@
           </scripts>
           <scripts name="Pause Button">
             <script>scripts\scr_disco_pause_button.gml</script>
+          </scripts>
+          <scripts name="Robot">
+            <script>scripts\scr_robot_button.gml</script>
+            <script>scripts\scr_get_automata_run_states_list.gml</script>
+            <script>scripts\scr_get_automata_run_states_list_ext.gml</script>
+            <script>scripts\scr_test_automata_states_list.gml</script>
           </scripts>
         </scripts>
         <scripts name="Pause">
@@ -256,10 +265,13 @@
         </objects>
         <objects name="Disco">
           <object>objects\obj_disco_handler</object>
-          <object>objects\obj_robot</object>
           <object>objects\obj_step</object>
           <object>objects\obj_automata_trash_button</object>
           <object>objects\obj_remainder_states_counter</object>
+          <objects name="Robot">
+            <object>objects\obj_robot</object>
+            <object>objects\obj_robot_button</object>
+          </objects>
         </objects>
         <objects name="Pause">
           <object>objects\obj_pause_window</object>
@@ -285,9 +297,6 @@
           <object>objects\obj_pages_box</object>
           <object>objects\obj_page_tag</object>
         </objects>
-      </objects>
-      <objects name="Creation">
-        <object>objects\obj_create_handler</object>
       </objects>
     </objects>
     <objects name="Others">
@@ -322,7 +331,6 @@
     </rooms>
     <rooms name="Isaac">
       <room>rooms\rm_levels</room>
-      <room>rooms\rm_create</room>
     </rooms>
     <rooms name="Others">
       <room>rooms\rm_start</room>
