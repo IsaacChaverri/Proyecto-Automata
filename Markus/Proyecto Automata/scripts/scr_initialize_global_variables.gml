@@ -13,6 +13,7 @@ globalvar CURRENT_USER_DATA; CURRENT_USER_DATA = noone;
 
 //Levels
 globalvar PAGES_DATA_LIST; PAGES_DATA_LIST = ds_list_create();
+globalvar CURRENT_PAGE_DATA; CURRENT_PAGE_DATA = noone;
 globalvar CURRENT_LEVEL_DATA; CURRENT_LEVEL_DATA = noone;
 
 //Sound

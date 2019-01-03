@@ -52,6 +52,10 @@
           <sprite>sprites\spr_pause_window</sprite>
           <sprite>sprites\spr_pause_window_button</sprite>
         </sprites>
+        <sprites name="Win">
+          <sprite>sprites\spr_win_window</sprite>
+          <sprite>sprites\spr_win_window_button</sprite>
+        </sprites>
       </sprites>
     </sprites>
     <sprites name="Isaac">
@@ -139,6 +143,11 @@
         <scripts name="Pause">
           <script>scripts\scr_pause_window_continue_button.gml</script>
           <script>scripts\scr_pause_window_exit_button.gml</script>
+        </scripts>
+        <scripts name="Win">
+          <script>scripts\scr_create_win_window.gml</script>
+          <script>scripts\scr_win_window_next_button.gml</script>
+          <script>scripts\scr_win_window_exit_button.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -275,6 +284,9 @@
         </objects>
         <objects name="Pause">
           <object>objects\obj_pause_window</object>
+        </objects>
+        <objects name="Win">
+          <object>objects\obj_win_window</object>
         </objects>
       </objects>
     </objects>

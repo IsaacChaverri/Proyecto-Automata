@@ -37,5 +37,26 @@ instance_deactivate_object(obj_state);
 if(arg_transition.transition_is_cycle and arg_value == EPSILON){
     value_is_usable = false;
 }
+//Check if value is not in steps
+var value_in_steps = false;
+if(arg_value != EPSILON and arg_value != SIGMA){
+    instance_activate_object(obj_disco_handler);
+    instance_activate_object(obj_step);
+    var steps_list = obj_disco_handler.steps_list;
+    var steps_list_size = ds_list_size(steps_list);
+    for(var i=0;i<steps_list_size;i++){
+        var temp_step = ds_list_find_value(steps_list,i);
+        if(arg_value == temp_step.number){
+            value_in_steps = true;
+        }
+    }
+    instance_deactivate_object(obj_disco_handler);
+    instance_deactivate_object(obj_step);
+}else{
+    value_in_steps = true;
+}
+if(not value_in_steps){
+    value_is_usable = false;
+}
 
 return value_is_usable;
