@@ -3,9 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions>
-    <extension index="0">extensions\inputTextEx</extension>
-  </NewExtensions>
+  <NewExtensions/>
   <sounds name="sound">
     <sounds name="Markus">
       <sound>sound\snd_temp_markus</sound>

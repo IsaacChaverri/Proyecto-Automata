@@ -2,7 +2,7 @@
 
 //Crear keyboard
 //funcion_para_crear_keyboard();
-showInputText("Pasos", "OK", "Cancel")
+var steps_string = get_string_async("Steps","");
 
 //Destruirme
 instance_destroy();
