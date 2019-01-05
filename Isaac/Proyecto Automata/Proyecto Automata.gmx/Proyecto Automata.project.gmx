@@ -6,7 +6,12 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Markus">
-      <sound>sound\snd_temp_markus</sound>
+      <sounds name="Gameplay">
+        <sounds name="Automata">
+          <sound>sound\sfx_automata_win</sound>
+          <sound>sound\sfx_automata_lose</sound>
+        </sounds>
+      </sounds>
     </sounds>
     <sounds name="Isaac">
       <sound>sound\snd_temp_isaac</sound>
@@ -37,13 +42,19 @@
           <sprite>sprites\spr_step</sprite>
           <sprite>sprites\spr_pause_button</sprite>
           <sprite>sprites\spr_automata_trash</sprite>
+          <sprite>sprites\spr_remainder_states_counter</sprite>
           <sprites name="Robot">
             <sprite>sprites\spr_robot</sprite>
+            <sprite>sprites\spr_robot_button</sprite>
           </sprites>
         </sprites>
         <sprites name="Pause">
           <sprite>sprites\spr_pause_window</sprite>
           <sprite>sprites\spr_pause_window_button</sprite>
+        </sprites>
+        <sprites name="Win">
+          <sprite>sprites\spr_win_window</sprite>
+          <sprite>sprites\spr_win_window_button</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -69,20 +80,29 @@
           <sprite>sprites\spr_page_tag</sprite>
         </sprites>
       </sprites>
-      <sprites name="Create">
-        <sprite>sprites\spr_create_button</sprite>
-        <sprite>sprites\spr_steps_text</sprite>
-        <sprite>sprites\spr_cancel</sprite>
-        <sprite>sprites\spr_robot_create</sprite>
+      <sprites name="Level Creation">
+        <sprite>sprites\spr_level_creation_handler</sprite>
       </sprites>
     </sprites>
     <sprites name="Others">
-      <sprites name="Text">
-        <sprite>sprites\spr_next_icon</sprite>
-      </sprites>
       <sprites name="Test">
         <sprites name="Gesture">
           <sprite>sprites\spr_test_gesture_ball</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Others">
+        <sprite>sprites\spr_robot_icon</sprite>
+      </sprites>
+      <sprites name="GUI">
+        <sprites name="Text">
+          <sprite>sprites\spr_next_icon</sprite>
+        </sprites>
+        <sprites name="Text Field">
+          <sprite>sprites\spr_default_text_field</sprite>
+        </sprites>
+        <sprites name="Buttons">
+          <sprite>sprites\spr_general_gray_button</sprite>
+          <sprite>sprites\spr_general_white_button</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -110,10 +130,15 @@
             <script>scripts\scr_number_dial_window_cancel_button.gml</script>
             <script>scripts\scr_number_dial_window_accept_button.gml</script>
             <script>scripts\scr_number_dial_window_deselect_number_button.gml</script>
+            <script>scripts\scr_transition_value_is_usable.gml</script>
             <scripts name="Edit">
               <script>scripts\scr_number_dial_window_edit_cancel_button.gml</script>
               <script>scripts\scr_number_dial_window_edit_accept_button.gml</script>
             </scripts>
+          </scripts>
+          <scripts name="States">
+            <script>scripts\scr_find_simultaneous_states_list.gml</script>
+            <script>scripts\scr_find_simultaneous_states_list_ext.gml</script>
           </scripts>
         </scripts>
         <scripts name="Disco">
@@ -123,10 +148,21 @@
           <scripts name="Pause Button">
             <script>scripts\scr_disco_pause_button.gml</script>
           </scripts>
+          <scripts name="Robot">
+            <script>scripts\scr_robot_button.gml</script>
+            <script>scripts\scr_get_automata_run_states_list.gml</script>
+            <script>scripts\scr_get_automata_run_states_list_ext.gml</script>
+            <script>scripts\scr_test_automata_states_list.gml</script>
+          </scripts>
         </scripts>
         <scripts name="Pause">
           <script>scripts\scr_pause_window_continue_button.gml</script>
           <script>scripts\scr_pause_window_exit_button.gml</script>
+        </scripts>
+        <scripts name="Win">
+          <script>scripts\scr_create_win_window.gml</script>
+          <script>scripts\scr_win_window_next_button.gml</script>
+          <script>scripts\scr_win_window_exit_button.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -146,8 +182,10 @@
           </scripts>
         </scripts>
       </scripts>
-      <scripts name="Creation">
-        <script>scripts\scr_text_field.gml</script>
+      <scripts name="Level Creation">
+        <script>scripts\scr_level_creation_cancel_button.gml</script>
+        <script>scripts\scr_level_creation_create_button.gml</script>
+        <script>scripts\scr_level_creation_edit_button.gml</script>
       </scripts>
     </scripts>
     <scripts name="Others">
@@ -157,6 +195,7 @@
         <script>scripts\scr_save.gml</script>
         <script>scripts\scr_load.gml</script>
         <script>scripts\scr_draw_every_sprite.gml</script>
+        <script>scripts\scr_load_test_data.gml</script>
       </scripts>
       <scripts name="States">
         <script>scripts\scr_initialize_state.gml</script>
@@ -177,6 +216,9 @@
         <scripts name="Screenshot">
           <script>scripts\scr_screenshot_dummy_draw.gml</script>
         </scripts>
+        <scripts name="Text Field">
+          <script>scripts\scr_text_field.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Others">
         <script>scripts\scr_approach.gml</script>
@@ -196,6 +238,10 @@
         <script>scripts\scr_split_string.gml</script>
         <script>scripts\scr_ds_list_delete_value.gml</script>
         <script>scripts\scr_char_in_string.gml</script>
+        <script>scripts\scr_string_get_char_index.gml</script>
+        <script>scripts\scr_get_string_without_duplicates.gml</script>
+        <script>scripts\scr_find_user_data_with_email.gml</script>
+        <script>scripts\scr_print_loaded_data.gml</script>
         <scripts name="Flash">
           <script>scripts\scr_flash.gml</script>
           <script>scripts\scr_flash_dummy.gml</script>
@@ -205,7 +251,6 @@
           <script>scripts\scr_shake_object_list.gml</script>
           <script>scripts\scr_shake_dummy_step.gml</script>
         </scripts>
-        <script>scripts\scr_string_get_char_index.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -256,12 +301,19 @@
         </objects>
         <objects name="Disco">
           <object>objects\obj_disco_handler</object>
-          <object>objects\obj_robot</object>
           <object>objects\obj_step</object>
           <object>objects\obj_automata_trash_button</object>
+          <object>objects\obj_remainder_states_counter</object>
+          <objects name="Robot">
+            <object>objects\obj_robot</object>
+            <object>objects\obj_robot_button</object>
+          </objects>
         </objects>
         <objects name="Pause">
           <object>objects\obj_pause_window</object>
+        </objects>
+        <objects name="Win">
+          <object>objects\obj_win_window</object>
         </objects>
       </objects>
     </objects>
@@ -285,13 +337,8 @@
           <object>objects\obj_page_tag</object>
         </objects>
       </objects>
-      <objects name="Creation">
-        <object>objects\obj_create_handler</object>
-        <object>objects\obj_steps</object>
-        <object>objects\obj_states</object>
-        <object>objects\obj_create_button</object>
-        <object>objects\obj_cancel</object>
-        <object>objects\obj_robot_create</object>
+      <objects name="Level Creation">
+        <object>objects\obj_level_creation_handler</object>
       </objects>
     </objects>
     <objects name="Others">
@@ -305,6 +352,10 @@
         <objects name="Button">
           <object>objects\obj_button</object>
           <object>objects\obj_text_button</object>
+        </objects>
+        <objects name="Text Field">
+          <object>objects\obj_text_field</object>
+          <object>objects\obj_numbers_text_field</object>
         </objects>
       </objects>
       <objects name="Others">
@@ -326,7 +377,7 @@
     </rooms>
     <rooms name="Isaac">
       <room>rooms\rm_levels</room>
-      <room>rooms\rm_create</room>
+      <room>rooms\rm_level_creation</room>
     </rooms>
     <rooms name="Others">
       <room>rooms\rm_start</room>

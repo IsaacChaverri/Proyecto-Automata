@@ -181,23 +181,27 @@ if(not initialized_dependent_variables){
         if(number_buttons_counter &gt; 8){
             switch(number_buttons_counter){
                 case 9:
-                    new_number_value = "e";
+                    new_number_value = EPSILON;
                     new_number_script = scr_number_dial_window_special_number_button;
                     break;
                 case 10:
                     new_number_value = "0";
                     break;
                 case 11:
-                    new_number_value = "E";
+                    new_number_value = SIGMA;
                     new_number_script = scr_number_dial_window_special_number_button;
                     break;
             }
         }
+        var new_number_button_value_is_usable = scr_transition_value_is_usable(transition,new_number_value);
         var new_number_button = scr_instance_create_depth(new_number_button_x,new_number_button_y,new_number_button_depth,obj_number_dial_button);
         with(new_number_button){
             number_dial_window = other.id;
             value = new_number_value;
             script = new_number_script;
+            if(not new_number_button_value_is_usable){
+                locked = true;
+            }
         }
         ds_list_add(number_buttons_list,new_number_button);
         number_buttons_current_column++;

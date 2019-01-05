@@ -105,7 +105,7 @@ switch(current_state){
                 break;
             case "TAP":
                 //Add new state
-                if(GESTURE_IS_DOUBLE and not ds_list_empty(unused_letters_list)){
+                if(GESTURE_IS_DOUBLE and not ds_list_empty(unused_letters_list) and obj_remainder_states_counter.remainder_states_amount &gt; 0){
                     var new_state = scr_instance_create_depth(mouse_x,mouse_y,depth-1,obj_state);
                     with(new_state){
                         letter = ds_list_find_value(other.unused_letters_list,0);

@@ -129,6 +129,13 @@ if(not initialized_dependent_variables){
         sprite_index = spr_automata_trash;
         script = scr_automata_trash_button;
     }
+    //Create Remainder States Counter
+    var remainder_states_counter_width = sprite_get_width(spr_remainder_states_counter);
+    var remainder_states_counter_height = sprite_get_height(spr_remainder_states_counter);
+    var remainder_states_counter_x = x+border_horizontal_pad+(remainder_states_counter_width/2);
+    var remainder_states_counter_y = y+sprite_height-border_vertical_pad-(remainder_states_counter_height/2);
+    var remainder_states_counter_depth = depth-1;
+    remainder_states_counter = scr_instance_create_depth(remainder_states_counter_x,remainder_states_counter_y,remainder_states_counter_depth,obj_remainder_states_counter);
 }
 </string>
           </argument>

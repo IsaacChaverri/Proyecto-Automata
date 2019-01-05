@@ -1,273 +1,54 @@
 ///scr_load()
 
-//Create Users Data
-var principal_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(principal_user_data){
-    persistent = true;
-    name = "Principal";
-    email = "";
-    type = "";
+if(file_exists("save.dat")){
+    ini_open("save.dat");
+    //Users Data
+    var users_data_amount = ini_read_real("USERS_DATA","amount",0);
+    for(var i=0;i<users_data_amount;i++){
+        var temp_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
+        with(temp_user_data){
+            persistent = true;
+            name = ini_read_string("USERS_DATA","name["+string(i)+"]","");
+            email = ini_read_string("USERS_DATA","email["+string(i)+"]","");
+            type = ini_read_string("USERS_DATA","type["+string(i)+"]","");
+        }
+        ds_list_add(USERS_DATA_LIST,temp_user_data);
+    }
+    //Pages Data
+    var pages_data_amount = ini_read_real("PAGES_DATA","amount",0);
+    for(var i=0;i<pages_data_amount;i++){
+        var temp_page_data = scr_instance_create_depth(0,0,0,obj_dummy);
+        with(temp_page_data){
+            persistent = true;
+            //Creator user data
+            var creator_user_email = ini_read_string("PAGES_DATA","creator_user_email["+string(i)+"]","");
+            creator_user_data = scr_find_user_data_with_email(creator_user_email);
+            //Levels data
+            levels_data_list = ds_list_create();
+            var levels_data_list_size = ini_read_real("PAGES_DATA","levels_data_size["+string(i)+"]","");
+            for(var j=0;j<levels_data_list_size;j++){
+                var temp_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
+                with(temp_level_data){
+                    persistent = true;
+                    steps = ini_read_string("LEVELS_DATA","steps["+string(i)+"]"+"["+string(j)+"]","");
+                    max_states = real(ini_read_string("LEVELS_DATA","max_states["+string(i)+"]"+"["+string(j)+"]",""));
+                    //Won users
+                    won_users_list = ds_list_create();
+                    var won_users_amount = ini_read_real("LEVELS_DATA","won_users_amount["+string(i)+"]"+"["+string(j)+"]","");
+                    for(var k=0;k<won_users_amount;k++){
+                        var temp_won_user_email = ini_read_string("WON_USERS","email["+string(i)+"]"+"["+string(j)+"]"+"["+string(k)+"]","");
+                        ds_list_add(won_users_list,temp_won_user_email);
+                    }
+                }
+                ds_list_add(levels_data_list,temp_level_data);
+            }
+        }
+        ds_list_add(PAGES_DATA_LIST,temp_page_data);
+    }
+    //Others
+    var current_user_email = ini_read_string("OTHERS","current_user_email","");
+    CURRENT_USER_DATA = scr_find_user_data_with_email(current_user_email);
+    ini_close();
 }
-ds_list_add(USERS_DATA_LIST,principal_user_data);
-var erika_schumann_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(erika_schumann_user_data){
-    persistent = true;
-    name = "Erika Schumann";
-    email = "erika_schumann@gmail.com";
-    type = "Administrator";
-}
-ds_list_add(USERS_DATA_LIST,erika_schumann_user_data);
-var esteban_arias_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(esteban_arias_user_data){
-    persistent = true;
-    name = "Esteban Arias";
-    email = "esteban_arias@gmail.com";
-    type = "Administrator";
-}
-ds_list_add(USERS_DATA_LIST,esteban_arias_user_data);
-var ignacio_trejos_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(ignacio_trejos_user_data){
-    persistent = true;
-    name = "Ignacio Trejos";
-    email = "ignacio_trejos@gmail.com";
-    type = "Administrator";
-}
-ds_list_add(USERS_DATA_LIST,ignacio_trejos_user_data);
-var kirstein_gatjens_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(kirstein_gatjens_user_data){
-    persistent = true;
-    name = "Kirstein Gatjens";
-    email = "kirsteing_gatjens@gmail.com";
-    type = "Administrator";
-}
-ds_list_add(USERS_DATA_LIST,kirstein_gatjens_user_data);
-var markus_villalobos_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(markus_villalobos_user_data){
-    persistent = true;
-    name = "";
-    email = "markus_villalobos@gmail.com";
-    type = "Estudiante";
-}
-ds_list_add(USERS_DATA_LIST,markus_villalobos_user_data);
-var isaac_chaverri_user_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(isaac_chaverri_user_data){
-    persistent = true;
-    name = "";
-    email = "isaac_chaverri@gmail.com";
-    type = "Estudiante";
-}
-ds_list_add(USERS_DATA_LIST,isaac_chaverri_user_data);
-
-CURRENT_USER_DATA = erika_schumann_user_data;
-
-
-//Create Pages Data
-//Principal
-var new_page_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(new_page_data){
-    persistent = true;
-    creator_user_data = principal_user_data;
-    levels_data_list = ds_list_create();
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "1231233124";
-        max_states = 4;
-        won_users_list = ds_list_create();
-        ds_list_add(won_users_list,"erika_schumann@gmail.com");
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-        ds_list_add(won_users_list,"erika_schumann@gmail.com");
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-        ds_list_add(won_users_list,"erika_schumann@gmail.com");
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-        ds_list_add(won_users_list,"erika_schumann@gmail.com");
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-        ds_list_add(won_users_list,"erika_schumann@gmail.com");
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-}
-ds_list_add(PAGES_DATA_LIST,new_page_data);
-//Erika Schumann
-var new_page_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(new_page_data){
-    persistent = true;
-    creator_user_data = erika_schumann_user_data;
-    levels_data_list = ds_list_create();
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "1231233124";
-        max_states = 4;
-        won_users_list = ds_list_create();
-        ds_list_add(won_users_list,"erika_schumann@gmail.com");
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-        ds_list_add(won_users_list,"erika_schumann@gmail.com");
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "9876543210";
-        max_states = 10;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-}
-ds_list_add(PAGES_DATA_LIST,new_page_data);
-//Esteban Arias
-var new_page_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(new_page_data){
-    persistent = true;
-    creator_user_data = esteban_arias_user_data;
-    levels_data_list = ds_list_create();
-}
-ds_list_add(PAGES_DATA_LIST,new_page_data);
-//Ignacio Trejos
-var new_page_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(new_page_data){
-    persistent = true;
-    creator_user_data = ignacio_trejos_user_data;
-    levels_data_list = ds_list_create();
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "05460";
-        max_states = 1;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-}
-ds_list_add(PAGES_DATA_LIST,new_page_data);
-//Kirstein Gatjens
-var new_page_data = scr_instance_create_depth(0,0,0,obj_dummy);
-with(new_page_data){
-    persistent = true;
-    creator_user_data = kirstein_gatjens_user_data;
-    levels_data_list = ds_list_create();
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "05460";
-        max_states = 1;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "86189";
-        max_states = 5;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "86189";
-        max_states = 5;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-    var new_level_data = scr_instance_create_depth(0,0,0,obj_dummy);
-    with(new_level_data){
-        persistent = true;
-        steps = "86189";
-        max_states = 5;
-        won_users_list = ds_list_create();
-    }
-    ds_list_add(levels_data_list,new_level_data);
-}
-ds_list_add(PAGES_DATA_LIST,new_page_data);
 
 //scr_activate_pages_data(false);

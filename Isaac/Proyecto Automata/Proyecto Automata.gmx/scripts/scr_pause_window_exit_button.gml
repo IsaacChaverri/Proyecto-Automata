@@ -2,4 +2,4 @@
 //Reactivate Instances
 scr_reactivate_all();
 //Change Room
-room_goto(rm_levels);
+scr_room_goto(rm_levels);

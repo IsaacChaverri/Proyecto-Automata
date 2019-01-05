@@ -1,8 +1,7 @@
 ///scr_text_field()
 
-//Crear keyboard
-//funcion_para_crear_keyboard();
-var steps_string = get_string_async("Steps","");
+//Create keyboard
+button.string_async_id = get_string_async("",button.text);
 
-//Destruirme
+//Destroy Dummy
 instance_destroy();
