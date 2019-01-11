@@ -54,7 +54,7 @@ is_first_level = false;
 is_last_level = false;
 level_locked = true;
 //Text Variables
-text_font = fnt_arial_24;
+text_font = fnt_montserrat_24;
 text_color = c_black;
 letter = "";
 //Image Variables

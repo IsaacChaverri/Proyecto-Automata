@@ -32,14 +32,14 @@ initialized_dependent_variables = false;
 //Position Variables
 title_y_offset = sprite_height/4;
 //Text Variables
-title_text = "Descripcion";
-title_text_font = fnt_arial_48_bold;
+title_text = "Descripción";
+title_text_font = fnt_montserrat_48_bold;
 description_text = "";
 description_max_height = sprite_height;
 description_horizontal_padding = 15;
 description_vertical_padding = 0;
 description_fonts_list = ds_list_create();
-ds_list_add(description_fonts_list,fnt_arial_24,fnt_arial_18,fnt_arial_12);
+ds_list_add(description_fonts_list,fnt_montserrat_24,fnt_montserrat_18,fnt_montserrat_12);
 //Other Variables
 screenshot = noone;
 </string>
@@ -144,7 +144,7 @@ if(not initialized_dependent_variables){
     var new_height = description_window_height+added_height;
     image_yscale = new_height/description_window_height;
     //Create Buttons
-    var buttons_text_font = fnt_arial_30;
+    var buttons_text_font = fnt_montserrat_30;
     var buttons_depth = depth-1;
     var buttons_sprite_index = spr_pause_window_button;
     //Create Continue Button

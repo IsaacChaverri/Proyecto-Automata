@@ -29,7 +29,7 @@
 
 //Text Variables
 page_name = "";
-text_font = fnt_arial_30;
+text_font = fnt_montserrat_30;
 </string>
           </argument>
         </arguments>

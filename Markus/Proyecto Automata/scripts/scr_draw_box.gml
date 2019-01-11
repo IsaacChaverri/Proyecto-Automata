@@ -1,4 +1,4 @@
-///scr_draw_box(x,y,width,outer_color,inner_color,border_weight,centered,alpha,rounded)
+///scr_draw_box(x,y,width,height,outer_color,inner_color,border_weight,centered,alpha,rounded)
 var arg_x = argument0;
 var arg_y = argument1;
 var arg_width = argument2;

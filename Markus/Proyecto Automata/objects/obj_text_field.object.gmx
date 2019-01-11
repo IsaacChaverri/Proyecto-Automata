@@ -49,14 +49,21 @@ event_inherited();
             <kind>1</kind>
             <string>///Initialize Variables
 
+//Flag Variables
+initialized_dependent_variables = false;
 //Text Variables
 text = "";
 default_text = "";
-text_font = fnt_arial_36;
+fonts_list = ds_list_create();
+ds_list_add(fonts_list,fnt_montserrat_36,fnt_montserrat_30,fnt_montserrat_24,fnt_montserrat_18,fnt_montserrat_12);
+text_font = fnt_montserrat_36;
+original_font = text_font;
 text_color = c_gray;
 text_offset = 10;
 text_x_offset = text_offset;
 text_y_offset = text_offset;
+drawn_text = text;
+text_max_width = sprite_width-(text_x_offset*2);
 //Other Variables
 script = scr_text_field;
 string_async_id = noone;
@@ -111,6 +118,52 @@ var i_d = ds_map_find_value(async_load,"id");
 if(i_d == string_async_id){
     if(ds_map_find_value(async_load,"status")){
         text = ds_map_find_value(async_load,"result");
+        var result_list = scr_get_boxed_text(text,0,text_max_width,text_x_offset,text_y_offset,fonts_list);
+        drawn_text = ds_list_find_value(result_list,0);
+        text_font = ds_list_find_value(result_list,1);
+        ds_list_destroy(result_list);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="76">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize Dependent Variables
+if(not initialized_dependent_variables){
+    initialized_dependent_variables = true;
+    
+    //Adjust drawn text
+    var temp_text = text;
+    if(text == ""){
+        temp_text = default_text;
+        var result_list = scr_get_boxed_text(temp_text,0,text_max_width,text_x_offset,text_y_offset,fonts_list);
+        drawn_text = ds_list_find_value(result_list,0);
+        text_font = ds_list_find_value(result_list,1);
+        original_font = text_font;
+        ds_list_destroy(result_list);
+    }else{
+        var result_list = scr_get_boxed_text(temp_text,0,text_max_width,text_x_offset,text_y_offset,fonts_list);
+        drawn_text = ds_list_find_value(result_list,0);
+        text_font = ds_list_find_value(result_list,1);
+        ds_list_destroy(result_list);
     }
 }
 </string>
@@ -142,8 +195,9 @@ draw_self();
 scr_setup_write(text_font,fa_left,fa_middle,text_color);
 var text_x = x-(sprite_width/2)+text_x_offset;
 var text_y = y+text_y_offset;
-var temp_text = text;
+var temp_text = drawn_text;
 if(text == ""){
+    draw_set_font(original_font);
     temp_text = default_text;
 }
 draw_text(text_x,text_y,temp_text);

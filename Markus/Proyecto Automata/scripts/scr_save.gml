@@ -1,5 +1,9 @@
 ///scr_save()
 
+if(file_exists("save.dat")){
+    file_delete("save.dat");
+}
+
 ini_open("save.dat");
 //Users Data
 var users_data_list_size = ds_list_size(USERS_DATA_LIST);
@@ -10,6 +14,7 @@ for(var i=0;i<users_data_list_size;i++){
         ini_write_string("USERS_DATA","name["+string(i)+"]",name);
         ini_write_string("USERS_DATA","email["+string(i)+"]",email);
         ini_write_string("USERS_DATA","type["+string(i)+"]",type);
+        ini_write_string("USERS_DATA","encrypted_password["+string(i)+"]",encrypted_password);
     }
 }
 //Pages Data
@@ -41,6 +46,9 @@ for(var i=0;i<pages_data_list_size;i++){
     }
 }
 //Others
-var current_user_email = CURRENT_USER_DATA.email;
+var current_user_email = "";
+if(instance_exists(CURRENT_USER_DATA)){
+    current_user_email = CURRENT_USER_DATA.email;
+}
 ini_write_string("OTHERS","current_user_email",current_user_email);
 ini_close();

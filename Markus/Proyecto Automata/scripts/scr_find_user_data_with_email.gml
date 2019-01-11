@@ -6,7 +6,7 @@ var user_data = noone;
 var users_data_list_size = ds_list_size(USERS_DATA_LIST);
 for(var i=0;i<users_data_list_size;i++){
     var temp_user_data = ds_list_find_value(USERS_DATA_LIST,i);
-    if(temp_user_data.email == arg_email){
+    if(temp_user_data.email == arg_email and temp_user_data.email != ""){
         user_data = temp_user_data;
         break;
     }

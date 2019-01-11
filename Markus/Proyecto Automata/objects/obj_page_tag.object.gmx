@@ -34,7 +34,7 @@ is_current_page_tag = false;
 image_speed = 0;
 //Text Variables
 text = "";
-text_font = fnt_arial_18;
+text_font = fnt_montserrat_18;
 text_color = c_black;
 //Other Variables
 pages_handler = obj_pages_handler;

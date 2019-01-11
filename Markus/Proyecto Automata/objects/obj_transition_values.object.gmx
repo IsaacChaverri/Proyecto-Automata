@@ -30,7 +30,7 @@
 //Flag Variables
 transition_is_cycle = false;
 //Text Variables
-text_font = fnt_arial_18;
+text_font = fnt_montserrat_18;
 padding = 1;
 //Other Variables
 values = "";

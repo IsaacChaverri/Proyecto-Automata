@@ -95,13 +95,30 @@
       </sprites>
     </sprites>
     <sprites name="Others">
-      <sprites name="Test">
-        <sprites name="Gesture">
-          <sprite>sprites\spr_test_gesture_ball</sprite>
+      <sprites name="Login">
+        <sprites name="Title Screen">
+          <sprite>sprites\spr_title_screen_logo</sprite>
+          <sprite>sprites\spr_title_screen_handler</sprite>
+          <sprite>sprites\spr_login_handler</sprite>
         </sprites>
-      </sprites>
-      <sprites name="Others">
-        <sprite>sprites\spr_robot_icon</sprite>
+        <sprites name="Login">
+          <sprite>sprites\spr_help_button</sprite>
+        </sprites>
+        <sprites name="Register">
+          <sprite>sprites\spr_register_handler</sprite>
+        </sprites>
+        <sprites name="Register Autentication">
+          <sprite>sprites\spr_register_autentication</sprite>
+        </sprites>
+        <sprites name="Password Help">
+          <sprite>sprites\spr_password_help_handler</sprite>
+        </sprites>
+        <sprites name="Password Code">
+          <sprite>sprites\spr_password_code_handler</sprite>
+        </sprites>
+        <sprites name="Change Password">
+          <sprite>sprites\spr_change_password_handler</sprite>
+        </sprites>
       </sprites>
       <sprites name="GUI">
         <sprites name="Text">
@@ -115,6 +132,10 @@
           <sprite>sprites\spr_general_gray_button</sprite>
           <sprite>sprites\spr_general_white_button</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Others">
+        <sprite>sprites\spr_robot_icon</sprite>
+        <sprite>sprites\spr_robot_head_icon</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -216,6 +237,7 @@
         <script>scripts\scr_load.gml</script>
         <script>scripts\scr_draw_every_sprite.gml</script>
         <script>scripts\scr_load_test_data.gml</script>
+        <script>scripts\scr_delete_data.gml</script>
       </scripts>
       <scripts name="States">
         <script>scripts\scr_initialize_state.gml</script>
@@ -243,6 +265,13 @@
             <script>scripts\scr_update_text_box_drawn_text.gml</script>
           </scripts>
         </scripts>
+        <scripts name="Buttons">
+          <script>scripts\scr_default_accept_button.gml</script>
+        </scripts>
+        <scripts name="Window">
+          <script>scripts\scr_create_window.gml</script>
+          <script>scripts\scr_create_default_window_accept_button.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Others">
         <script>scripts\scr_approach.gml</script>
@@ -266,6 +295,9 @@
         <script>scripts\scr_get_string_without_duplicates.gml</script>
         <script>scripts\scr_find_user_data_with_email.gml</script>
         <script>scripts\scr_print_loaded_data.gml</script>
+        <script>scripts\scr_draw_text_dummy.gml</script>
+        <script>scripts\scr_string_replace_all_characters.gml</script>
+        <script>scripts\scr_generate_random_string.gml</script>
         <scripts name="Flash">
           <script>scripts\scr_flash.gml</script>
           <script>scripts\scr_flash_dummy.gml</script>
@@ -274,6 +306,37 @@
         <scripts name="Shake">
           <script>scripts\scr_shake_object_list.gml</script>
           <script>scripts\scr_shake_dummy_step.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="Login">
+        <scripts name="Login">
+          <script>scripts\scr_login_login_button.gml</script>
+          <script>scripts\scr_login_create_account_button.gml</script>
+          <script>scripts\scr_login_help_button.gml</script>
+        </scripts>
+        <scripts name="Register">
+          <script>scripts\scr_register_cancel_button.gml</script>
+          <script>scripts\scr_register_register_button.gml</script>
+          <script>scripts\scr_register_send_autentication_accept_button.gml</script>
+        </scripts>
+        <scripts name="Register Autentication">
+          <script>scripts\scr_register_autentication_cancel_button.gml</script>
+          <script>scripts\scr_register_autentication_continue_button.gml</script>
+          <script>scripts\scr_register_autentication_accept_button.gml</script>
+        </scripts>
+        <scripts name="Password Help">
+          <script>scripts\scr_password_help_cancel_button.gml</script>
+          <script>scripts\scr_password_help_send_button.gml</script>
+          <script>scripts\scr_password_help_accept_button.gml</script>
+        </scripts>
+        <scripts name="Password Code">
+          <script>scripts\scr_password_code_cancel_button.gml</script>
+          <script>scripts\scr_password_code_continue_button.gml</script>
+        </scripts>
+        <scripts name="Change Password">
+          <script>scripts\scr_change_password_cancel_button.gml</script>
+          <script>scripts\scr_change_password_change_button.gml</script>
+          <script>scripts\scr_change_password_accept_button.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -303,6 +366,24 @@
           <font>fonts\fnt_arial_30_bold</font>
           <font>fonts\fnt_arial_36_bold</font>
           <font>fonts\fnt_arial_48_bold</font>
+        </fonts>
+      </fonts>
+      <fonts name="Open Sans">
+        <fonts name="Normal">
+          <font>fonts\fnt_montserrat_12</font>
+          <font>fonts\fnt_montserrat_18</font>
+          <font>fonts\fnt_montserrat_24</font>
+          <font>fonts\fnt_montserrat_30</font>
+          <font>fonts\fnt_montserrat_36</font>
+          <font>fonts\fnt_montserrat_48</font>
+        </fonts>
+        <fonts name="Bold">
+          <font>fonts\fnt_montserrat_12_bold</font>
+          <font>fonts\fnt_montserrat_18_bold</font>
+          <font>fonts\fnt_montserrat_24_bold</font>
+          <font>fonts\fnt_montserrat_30_bold</font>
+          <font>fonts\fnt_montserrat_36_bold</font>
+          <font>fonts\fnt_montserrat_48_bold</font>
         </fonts>
       </fonts>
     </fonts>
@@ -370,6 +451,29 @@
       </objects>
     </objects>
     <objects name="Others">
+      <objects name="Login">
+        <objects name="Title Screen">
+          <object>objects\obj_title_screen_handler</object>
+        </objects>
+        <objects name="Login">
+          <object>objects\obj_login_handler</object>
+        </objects>
+        <objects name="Register">
+          <object>objects\obj_register_handler</object>
+        </objects>
+        <objects name="Register Autentication">
+          <object>objects\obj_register_autentication_handler</object>
+        </objects>
+        <objects name="Password Help">
+          <object>objects\obj_password_help_handler</object>
+        </objects>
+        <objects name="Password Code">
+          <object>objects\obj_password_code_handler</object>
+        </objects>
+        <objects name="Change Password">
+          <object>objects\obj_change_password_handler</object>
+        </objects>
+      </objects>
       <objects name="Text">
         <object>objects\obj_message</object>
         <object>objects\obj_dialogue</object>
@@ -383,19 +487,17 @@
         </objects>
         <objects name="Text Field">
           <object>objects\obj_text_field</object>
+          <object>objects\obj_password_text_field</object>
           <object>objects\obj_numbers_text_field</object>
           <object>objects\obj_text_box</object>
+        </objects>
+        <objects name="Window">
+          <object>objects\obj_window</object>
         </objects>
       </objects>
       <objects name="Others">
         <object>objects\obj_general_control</object>
         <object>objects\obj_dummy</object>
-      </objects>
-      <objects name="Test">
-        <objects name="Gesture">
-          <object>objects\obj_test_gesture_drawer</object>
-          <object>objects\obj_test_gesture_ball</object>
-        </objects>
       </objects>
     </objects>
   </objects>
@@ -409,9 +511,14 @@
       <room>rooms\rm_level_creation</room>
     </rooms>
     <rooms name="Others">
-      <room>rooms\rm_start</room>
-      <rooms name="Test">
-        <room>rooms\rm_test_gesture</room>
+      <rooms name="Login">
+        <room>rooms\rm_title_screen</room>
+        <room>rooms\rm_login</room>
+        <room>rooms\rm_register</room>
+        <room>rooms\rm_register_autentication</room>
+        <room>rooms\rm_password_help</room>
+        <room>rooms\rm_password_code</room>
+        <room>rooms\rm_change_password</room>
       </rooms>
     </rooms>
   </rooms>

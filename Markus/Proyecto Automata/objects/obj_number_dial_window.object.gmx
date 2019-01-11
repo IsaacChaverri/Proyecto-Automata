@@ -33,7 +33,7 @@ editting = false;
 //Position Variables
 values_y_offset = sprite_height/12;
 //Text Variables
-text_font = fnt_arial_30;
+text_font = fnt_montserrat_30;
 //Other Variables
 values = "";
 transition = noone;
@@ -223,7 +223,7 @@ if(not initialized_dependent_variables){
         sprite_index = spr_number_dial_window_cancel_button;
         image_speed = 0;
         text = "Cancelar";
-        text_font = fnt_arial_18;
+        text_font = fnt_montserrat_18;
         text_color = c_black;
         script = cancel_button_script;
     }

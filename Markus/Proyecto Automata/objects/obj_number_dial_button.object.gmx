@@ -55,7 +55,7 @@ selected = false;
 //Image Variables
 image_speed = 0;
 //Text Variables
-text_font = fnt_arial_24;
+text_font = fnt_montserrat_24;
 text_color = c_black;
 //Other Variables
 original_script = noone;

@@ -52,15 +52,14 @@ event_inherited();
 //Flag Variables
 initialized_dependent_variables = false;
 //Text Variables
-text_font = fnt_arial_24;
-text_old = text;
+text_font = fnt_montserrat_24;
 drawn_text = text;
 padding = 20;
 horizontal_padding = padding;
 vertical_padding = padding;
 //Other Variables
 fonts_list = ds_list_create();
-ds_list_add(fonts_list,text_font,fnt_arial_18,fnt_arial_12);
+ds_list_add(fonts_list,text_font,fnt_montserrat_18,fnt_montserrat_12);
 </string>
           </argument>
         </arguments>
@@ -130,10 +129,7 @@ event_inherited();
           <argument>
             <kind>1</kind>
             <string>///Update drawn text
-if(text != text_old){
-    scr_update_text_box_drawn_text();
-}
-text_old = text;
+scr_update_text_box_drawn_text();
 </string>
           </argument>
         </arguments>
@@ -158,7 +154,8 @@ text_old = text;
             <kind>1</kind>
             <string>///Initialized Dependent Variables
 if(not initialized_dependent_variables){
-    initialized_dependent_variables = true;
+    //Inherit Event
+    event_inherited();
     
     //Set original/max height
     original_height = sprite_height;
@@ -197,6 +194,7 @@ var text_x = x-(sprite_width/2)+horizontal_padding;
 var text_y = y+vertical_padding;
 var temp_text = drawn_text;
 if(text == ""){
+    draw_set_font(original_font);
     temp_text = default_text;
 }
 draw_text(text_x,text_y,temp_text);

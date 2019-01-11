@@ -53,7 +53,7 @@ event_inherited();
 image_speed = 0;
 //Text Variables
 text = "Aceptar";
-text_font = fnt_arial_18;
+text_font = fnt_montserrat_18;
 text_color = c_black;
 //Other Variables
 number_dial_window = noone;

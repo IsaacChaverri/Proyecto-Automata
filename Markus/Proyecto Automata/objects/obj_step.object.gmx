@@ -118,7 +118,7 @@ if(not initialized_dependent_variables){
 //Draw Self
 draw_self();
 //Draw Number
-scr_setup_write(fnt_arial_12,fa_center,fa_middle,c_black);
+scr_setup_write(fnt_montserrat_12,fa_center,fa_middle,c_black);
 var text = number;
 var text_x_offset = -2;
 var text_x = x+text_x_offset;

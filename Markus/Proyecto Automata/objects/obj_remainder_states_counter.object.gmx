@@ -28,7 +28,7 @@
             <string>///Initialize Variables
 
 //Text Variables
-text_font = fnt_arial_18;
+text_font = fnt_montserrat_18;
 //Other Variables
 max_states = obj_gameplay_handler.max_states;
 remainder_states_amount = max_states;

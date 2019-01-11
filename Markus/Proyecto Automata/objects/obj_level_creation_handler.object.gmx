@@ -83,7 +83,7 @@ switch(state.counter){
         var max_states_text_field_depth = steps_text_field_depth;
         max_states_text_field = scr_instance_create_depth(max_states_text_field_x,max_states_text_field_y,max_states_text_field_depth,obj_numbers_text_field);
         with(max_states_text_field){
-            default_text = "Maximos estados";
+            default_text = "Máximos estados";
             if(EDITTING_LEVEL){
                 text = string(CURRENT_LEVEL_DATA.max_states);
             }
@@ -99,7 +99,7 @@ switch(state.counter){
         description_text_box = scr_instance_create_depth(description_text_box_x,description_text_box_y,description_text_box_depth,obj_level_creation_text_box);
         with(description_text_box){
             level_creation_handler = other.id;
-            default_text = "Descripcion (Opcional)";
+            default_text = "Descripción (Opcional)";
             if(EDITTING_LEVEL){
                 text = string(CURRENT_LEVEL_DATA.description);
             }
@@ -115,7 +115,7 @@ switch(state.counter){
             level_creation_handler = other.id;
             sprite_index = spr_general_gray_button;
             text = "Crear";
-            text_font = fnt_arial_36;
+            text_font = fnt_montserrat_36;
             text_color = c_white;
             script = scr_level_creation_create_button;
             if(EDITTING_LEVEL){
@@ -133,7 +133,7 @@ switch(state.counter){
         with(cancel_button){
             sprite_index = spr_general_white_button;
             text = "Cancelar";
-            text_font = fnt_arial_36;
+            text_font = fnt_montserrat_36;
             text_color = c_gray;
             script = scr_level_creation_cancel_button;
         }

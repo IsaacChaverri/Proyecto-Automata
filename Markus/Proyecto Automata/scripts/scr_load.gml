@@ -11,6 +11,7 @@ if(file_exists("save.dat")){
             name = ini_read_string("USERS_DATA","name["+string(i)+"]","");
             email = ini_read_string("USERS_DATA","email["+string(i)+"]","");
             type = ini_read_string("USERS_DATA","type["+string(i)+"]","");
+            encrypted_password = ini_read_string("USERS_DATA","encrypted_password["+string(i)+"]","");
         }
         ds_list_add(USERS_DATA_LIST,temp_user_data);
     }

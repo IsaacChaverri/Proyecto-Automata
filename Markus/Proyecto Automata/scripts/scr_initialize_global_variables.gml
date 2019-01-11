@@ -10,6 +10,7 @@ globalvar SWIPE_SPEED; SWIPE_SPEED = 0;
 //User
 globalvar USERS_DATA_LIST; USERS_DATA_LIST = ds_list_create();
 globalvar CURRENT_USER_DATA; CURRENT_USER_DATA = noone;
+globalvar TEMP_USER_DATA; TEMP_USER_DATA = noone;
 
 //Levels
 globalvar PAGES_DATA_LIST; PAGES_DATA_LIST = ds_list_create();

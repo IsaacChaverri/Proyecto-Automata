@@ -120,10 +120,7 @@ event_inherited();
           <argument>
             <kind>1</kind>
             <string>///Update level creation handler buttons y
-if(text_old_old != text){
-    scr_level_creation_text_box_update_buttons_y();
-}
-text_old_old = text;
+scr_level_creation_text_box_update_buttons_y();
 </string>
           </argument>
         </arguments>
@@ -150,8 +147,7 @@ text_old_old = text;
 if(not initialized_dependent_variables){
     //Inherit event
     event_inherited();
-    //Calculate olds
-    text_old_old = text;
+    //Calculate height old
     height_old = sprite_get_height(sprite_index);
     //Update buttons y
     scr_level_creation_text_box_update_buttons_y();

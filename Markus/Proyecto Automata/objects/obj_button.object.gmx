@@ -67,7 +67,7 @@ switch(current_state){
         current_color_value = original_color_value;
         switch(CURRENT_GESTURE){
             case "TOUCH":
-                if(not locked and scr_mouse_hovering_object(id,false,false) != noone){
+                if(not locked and scr_mouse_hovering_object(obj_button,false,false) == id){
                     if(press_sound != noone){
                         audio_play_sound(press_sound,10,false);
                     }
@@ -83,7 +83,7 @@ switch(current_state){
                 current_state = "OFF";
                 break;
             case "TAP":
-                if(scr_mouse_hovering_object(id,false,false) != noone){
+                if(scr_mouse_hovering_object(obj_button,false,false) == id){
                     if(release_sound != noone){
                         audio_play_sound(release_sound,10,false);
                     }
