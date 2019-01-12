@@ -1,7 +1,7 @@
 ///scr_password_help_send_button()
 
 //Get inputs
-var email_input = button.password_help_handler.email_text_field.text;
+var email_input = string_upper(button.password_help_handler.email_text_field.text);
 
 //Check if all inputs filled
 if(email_input != ""){
@@ -11,7 +11,7 @@ if(email_input != ""){
         //Update temp user data
         TEMP_USER_DATA = temp_user_data;
         with(TEMP_USER_DATA){
-            autentication_code = string_upper(scr_generate_random_string(AUTENTICATION_CODE_LENGTH));
+            autentication_code = "AAAAAA";//string_upper(scr_generate_random_string(AUTENTICATION_CODE_LENGTH));
         }
         //Create success window
         var window_title = "";

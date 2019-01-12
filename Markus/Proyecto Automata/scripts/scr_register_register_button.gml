@@ -1,7 +1,7 @@
 ///scr_register_register_button()
 
 //Get inputs
-var email_input = button.register_handler.email_text_field.text;
+var email_input = string_upper(button.register_handler.email_text_field.text);
 var password_input = button.register_handler.password_text_field.text;
 var confirm_password_input = button.register_handler.confirm_password_text_field.text;
 
@@ -36,7 +36,7 @@ if(email_input != "" and password_input != "" and confirm_password_input != ""){
                 email = email_input;
                 encrypted_password = base64_encode(password_input);
                 type = "Student";
-                autentication_code = string_upper(scr_generate_random_string(AUTENTICATION_CODE_LENGTH));
+                autentication_code = "AAAAAA";//string_upper(scr_generate_random_string(AUTENTICATION_CODE_LENGTH));
             }
             
             //Create email autentication window

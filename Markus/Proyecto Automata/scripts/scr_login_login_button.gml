@@ -1,7 +1,7 @@
 ///scr_login_login_button()
 
 //Get inputs
-var email_input = button.login_handler.email_text_field.text;
+var email_input = string_upper(button.login_handler.email_text_field.text);
 var password_input = button.login_handler.password_text_field.text;
 //Get login user data
 var login_user_data = noone;

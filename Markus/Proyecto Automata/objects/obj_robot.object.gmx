@@ -61,7 +61,7 @@ legs_dummy = noone;
             <string>///Choose State
 switch(current_state){
     case "Idle":
-        if(instance_exists(torso_dummy)){
+        if(instance_exists(torso_dummy) and torso_dummy.robot_button.locked){
             //Move Up and Down
             var neck_y = torso_dummy.y-(torso_dummy.sprite_height/2);
             var neck_height = 20;

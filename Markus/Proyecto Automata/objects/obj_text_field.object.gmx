@@ -113,6 +113,37 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Reactivate Game
+//Reactivate Instances
+scr_reactivate_all();
+//Destroy Screenshot Dummy
+with(screenshot_dummy){
+    instance_destroy();
+}
+//Fade Out
+scr_fade(0,0,MENU_FADE_COLOR,0);
+//Unlock
+locked = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Check for keyboard input
 var i_d = ds_map_find_value(async_load,"id");
 if(i_d == string_async_id){
