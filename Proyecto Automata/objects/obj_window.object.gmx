@@ -38,7 +38,7 @@ title = "";
 title_color = c_white;
 title_drawn_text = title;
 title_max_height = 0;
-title_max_width = 0;
+title_max_width = GAME_WIDTH*0.8;
 title_horizontal_padding = 70;
 title_vertical_padding = 50;
 title_fonts_list = ds_list_create();
@@ -47,7 +47,7 @@ title_font = ds_list_find_value(title_fonts_list,0);
 description = "";
 description_color = c_white;
 description_drawn_text = description;
-description_max_height = 0;
+description_max_height = GAME_HEIGHT/4;
 description_max_width = 0;
 description_horizontal_padding = 10;
 description_vertical_padding = 50;
@@ -173,7 +173,6 @@ if(not initialized_dependent_variables){
     draw_set_font(first_title_font);
     var temp_title_height = string_height(title);
     title_max_height = temp_title_height*2.5;
-    title_max_width = GAME_WIDTH*0.8;
     var return_list = scr_get_boxed_text(title,title_max_height,title_max_width,title_horizontal_padding,title_vertical_padding,title_fonts_list);
     title_drawn_text = ds_list_find_value(return_list,0);
     title_font = ds_list_find_value(return_list,1);
@@ -182,7 +181,6 @@ if(not initialized_dependent_variables){
     title_width = string_width(title_drawn_text);
     title_height = string_height(title_drawn_text);
     //Description Drawn Text
-    description_max_height = GAME_HEIGHT/4;
     description_max_width = title_max_width;
     var return_list = scr_get_boxed_text(description,description_max_height,description_max_width,description_horizontal_padding,description_vertical_padding,description_fonts_list);
     description_drawn_text = ds_list_find_value(return_list,0);

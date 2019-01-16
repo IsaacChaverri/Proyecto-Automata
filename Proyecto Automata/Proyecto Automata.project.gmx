@@ -100,6 +100,7 @@
           <sprite>sprites\spr_title_screen_logo</sprite>
           <sprite>sprites\spr_title_screen_handler</sprite>
           <sprite>sprites\spr_login_handler</sprite>
+          <sprite>sprites\spr_about_button</sprite>
         </sprites>
         <sprites name="Login">
           <sprite>sprites\spr_help_button</sprite>
@@ -309,6 +310,10 @@
         </scripts>
       </scripts>
       <scripts name="Login">
+        <scripts name="Start Screen">
+          <script>scripts\scr_about_button.gml</script>
+          <script>scripts\scr_terms_button.gml</script>
+        </scripts>
         <scripts name="Login">
           <script>scripts\scr_login_login_button.gml</script>
           <script>scripts\scr_login_create_account_button.gml</script>

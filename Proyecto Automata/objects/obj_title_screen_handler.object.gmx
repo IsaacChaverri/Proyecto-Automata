@@ -75,11 +75,38 @@ switch(state.counter){
             text_valign = fa_middle;
             draw_script = scr_draw_text_dummy;
         }
+        //Create Logged User Dummy
+        if(instance_exists(CURRENT_USER_DATA)){
+            var logged_user_padding = sprite_width/32;
+            var logged_user_dummy_x = x+sprite_width-logged_user_padding;
+            var logged_user_dummy_y = y+logged_user_padding;
+            var logged_user_dummy_depth = depth-1;
+            var logged_user_email = string_lower(CURRENT_USER_DATA.email);
+            logged_user_dummy = scr_instance_create_depth(logged_user_dummy_x,logged_user_dummy_y,logged_user_dummy_depth,obj_dummy);
+            with(logged_user_dummy){
+                draw_script = scr_draw_text_dummy;
+                text = "Usuario actual:#"+string(logged_user_email);
+                text_font = fnt_montserrat_12;
+                text_valign = fa_top;
+                text_halign = fa_right;
+                text_color = c_black;
+            }
+        }
+        //Create About Button
+        var about_button_padding = sprite_width/12;
+        var about_button_x = x+about_button_padding;
+        var about_button_y = y+about_button_padding;
+        var about_button_depth = depth-1;
+        about_button = scr_instance_create_depth(about_button_x,about_button_y,about_button_depth,obj_button);
+        with(about_button){
+            sprite_index = spr_about_button;
+            script = scr_about_button;
+        }
         
         state.counter++;
         break;
     case 1:
-        if(CURRENT_GESTURE == "TAP"){
+        if(CURRENT_GESTURE == "TAP" and scr_mouse_hovering_object(obj_button,false,true) == noone){
             if(instance_exists(CURRENT_USER_DATA)){
                 scr_room_goto(rm_levels);
             }else{
